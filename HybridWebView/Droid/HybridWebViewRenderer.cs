@@ -5,6 +5,7 @@ using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Android.Content;
 using Android.OS;
 using Android.Webkit;
 using Plugin.HybridWebView.Droid;
@@ -22,6 +23,8 @@ namespace Plugin.HybridWebView.Droid
     /// </summary>
     public class HybridWebViewRenderer : ViewRenderer<HybridWebViewControl, Android.Webkit.WebView>
     {
+        public HybridWebViewRenderer(Context c) : base(c) { }
+
         public static string MimeType = "text/html";
 
         public static string EncodingType = "UTF-8";
@@ -263,8 +266,6 @@ namespace Plugin.HybridWebView.Droid
 
             return toReturn;
         }
-
-
 
         private async Task<string> OnGetCookieRequestAsync(string key)
         {

@@ -1,4 +1,5 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Plugin.HybridWebView.Droid;
@@ -21,6 +22,12 @@ namespace SampleApp.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App(new AndroidInitializer()));
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            this.HybridWebView_ReportActivityResult(requestCode, resultCode, data);
         }
     }
 

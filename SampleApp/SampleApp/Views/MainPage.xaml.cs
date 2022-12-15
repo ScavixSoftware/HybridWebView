@@ -20,6 +20,13 @@ namespace SampleApp.Views
         {
             Items.Add(new SelectionItem()
             {
+                Identifier = 24,
+                Title = "FileUpload",
+                Detail = "File upload support."
+            });
+
+            Items.Add(new SelectionItem()
+            {
                 Identifier = 0,
                 Title = "Internet",
                 Detail = "Generic content loaded from the internet, no additions whatsoever."
@@ -287,6 +294,10 @@ namespace SampleApp.Views
 
                 case 23:
                     await ((NavigationPage)Application.Current.MainPage).PushAsync(new TabbedPageSample());
+                    break;
+
+                case 24:
+                    await ((NavigationPage)Application.Current.MainPage).PushAsync(new UploadSample());
                     break;
 
                 default:
